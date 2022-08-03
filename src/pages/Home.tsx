@@ -39,8 +39,10 @@ export function Home(){
   // Adicionar uma nova tarefa
   function handleAddNewTask(){
     const isAEqualTask = 
-      toDoList.find(task => task.task.toLowerCase() === newTask.toLowerCase());
-
+      toDoList.find(
+        task => 
+          task.task.toLowerCase().replace(/\s+/g, '') == newTask.toLowerCase().replace(/\s+/g, ''))
+        
     if (newTask === ''){
       Alert.alert(
         'Nenhuma tarefa foi digitada', 
